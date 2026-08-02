@@ -98,6 +98,15 @@ main {
   padding: 40px 0 24px;
 }
 
+.hero-image {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
 .hero h1 {
   font-size: 2rem;
   margin: 0 0 8px;

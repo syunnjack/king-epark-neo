@@ -101,6 +101,42 @@ DNS反映後、GitHub側でカスタムドメインとHTTPSが有効化されま
 
 実際の店舗として運用する場合は、住所・電話番号・メニュー・価格をすべて実データに差し替え、商標調査を行ってください。
 
+## Search Console と GA4 の登録・連携
+
+Googleアカウントでのログインが必要な作業のため、登録自体はご自身で行ってください。サイト側の受け入れ準備（トラッキングタグ設置）は完了しています。
+
+### 1. Search Console にドメインプロパティを追加
+
+1. [Search Console](https://search.google.com/search-console) を開き、「プロパティを追加」→「ドメイン」を選択し `junbannavi.com` と入力
+2. 表示されるDNS TXTレコードを、DNSレコードを設定したのと同じレジストラの管理画面に追加（**推奨**: ドメインプロパティならサブドメイン込みで一括管理でき、サイトのHTML変更も不要）
+3. 別法として、URLプレフィックスプロパティ＋HTMLタグ確認を使う場合は、`index.html`内のコメントアウトされた
+   `<meta name="google-site-verification" content="REPLACE_WITH_YOUR_TOKEN" />` の値を実際のトークンに置き換え、コメントを解除してください
+4. 確認が完了したら、`sitemap.xml`（`https://junbannavi.com/sitemap.xml`）をSearch Console上で送信してください
+
+### 2. GA4プロパティを作成してMeasurement IDを取得
+
+1. [Google Analytics](https://analytics.google.com/) で新規プロパティを作成（プロパティ名は「ジュンバンナビ」など）
+2. 「データストリーム」→「ウェブ」でストリームを追加し、URLに `https://junbannavi.com` を設定
+3. 発行された測定ID（`G-XXXXXXXXXX`形式）を控える
+
+### 3. 測定IDをサイトに反映
+
+`assets/analytics.js` 内の `GA_MEASUREMENT_ID` の値を、手順2で取得した測定IDに書き換えてコミットしてください。
+このファイルはすべてのページから読み込まれているため、1箇所書き換えるだけで全ページに反映されます。
+プレースホルダー（`G-XXXXXXXXXX`）のままではスクリプトは何も送信しないため、実際のデータが混ざる心配はありません。
+
+### 4. `sites-shien` と連携する
+
+`sites-shien`リポジトリの`config/sites.json`に、`junbannavi`のエントリをすでに追加済みです。
+以下を実データに置き換えてください。
+
+- `ga4_property_id`: 手順2のGA4プロパティID（`properties/`に続く数字。Analytics管理画面の「プロパティ設定」に表示されます。**測定IDとは別の値**です）
+- 既存の`GCP_SA_KEY`サービスアカウントに、`junbannavi`のGA4プロパティへの閲覧者権限を追加（`index-on-off`/`sites-shien`のREADMEと同じ手順）
+
+反映後、`sites-shien`のActionsを手動実行すると、`junbannavi.com`の実データでダッシュボードが更新されます。
+ただし、Search Console・GA4とも**登録直後はデータが空、または数日分反映されるまでタイムラグがあります**。
+インデックス状況の反映には特に時間がかかるため、実データに基づく改善提案は登録から1〜2週間後を目安にしてください。
+
 ## フェーズ2（直接課金の開始）の進捗
 
 料金プラン（`pricing.html`）と特定商取引法に基づく表記のドラフト（`tokushoho.html`）を追加しました。
