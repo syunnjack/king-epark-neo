@@ -68,10 +68,18 @@ python -m http.server 8000
 
 ## 公開先
 
-GitHub Pagesで公開済みです: https://syunnjack.github.io/king-epark-neo/
+独自ドメイン **junbannavi.com** で公開します（GitHub Pages + CNAME）。
+DNS側で以下のレコードをレジストラの管理画面に設定してください。
 
-独自ドメインに切り替える場合は、`canonical`・OGP・JSON-LD内の`url`/`@id`、`llms.txt`、`sitemap.xml`、`robots.txt`のSitemap行にある
-`https://syunnjack.github.io/king-epark-neo/` を実際のドメインに置換してください。
+| 種別 | ホスト | 値 |
+|---|---|---|
+| A | @（junbannavi.com） | 185.199.108.153 |
+| A | @（junbannavi.com） | 185.199.109.153 |
+| A | @（junbannavi.com） | 185.199.110.153 |
+| A | @（junbannavi.com） | 185.199.111.153 |
+| CNAME | www | syunnjack.github.io |
+
+DNS反映後、GitHub側でカスタムドメインとHTTPSが有効化されます（反映まで数時間かかる場合があります）。
 
 実際の店舗として運用する場合は、住所・電話番号・メニュー・価格をすべて実データに差し替え、商標調査を行ってください。
 
