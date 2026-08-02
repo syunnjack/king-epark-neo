@@ -23,6 +23,7 @@
 - [ジュンバンナビとは](https://junbannavi.com/about-platform.html): 本サイトが利用している予約プラットフォームの概要
 - [モニター募集](https://junbannavi.com/monitor.html): 飲食店向け無料モニタープログラムの案内
 - [モニター利用規約](https://junbannavi.com/monitor-terms.html): 無料モニタープログラムの利用規約
+- [料金プラン](https://junbannavi.com/pricing.html): フリー・スタンダード・プロの3プラン比較
 
 ## Notes
 
