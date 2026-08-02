@@ -1,0 +1,55 @@
+# robots.txt for king-epark-neo demo site
+#
+# Default policy: allow everything. This site is optimized for AI search /
+# LLM-citation visibility (AIO/LLMO), so both "training" crawlers and
+# "answer-time retrieval" crawlers are explicitly allowed below.
+#
+# If you deploy this for a real business and want to keep search/citation
+# visibility WITHOUT allowing your content to be used for model training,
+# keep the "AI answer engines" block below allowed and instead add
+# "Disallow: /" under GPTBot, ClaudeBot, Google-Extended, CCBot, and
+# Bytespider. That is a legitimate, common choice -- it is not the default
+# here because this project's stated goal is maximum AI discoverability.
+
+User-agent: *
+Allow: /
+
+# --- AI answer-engine / search-time crawlers (citations, AI Overviews, chat answers) ---
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+# --- AI training crawlers (opted in by default -- see note above) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+Sitemap: https://example.com/king-epark-neo/sitemap.xml

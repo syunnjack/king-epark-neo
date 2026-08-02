@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>ジュンバンナビとは｜飲食店向け順番待ち・予約プラットフォーム</title>
+<meta name="description" content="ジュンバンナビは、順番待ち登録とネット予約をひとつにまとめた飲食店向けプラットフォームです。全ページに構造化データとllms.txtを標準実装し、Google検索だけでなくAI検索・LLMの回答にも店舗情報が正しく引用されることを重視しています。" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="canonical" href="https://example.com/king-epark-neo/about-platform.html" />
+<link rel="stylesheet" href="assets/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "ジュンバンナビ",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "飲食店向けの順番待ち登録・ネット予約プラットフォーム。導入店舗のWebサイトに構造化データとllms.txtを標準実装し、検索エンジンとAI検索の両方からの発見性を高める。",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "JPY",
+    "price": "0",
+    "description": "デモ版のため料金体系は未定（本ページはポートフォリオ用の概念実証です）"
+  }
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">炭火焼肉 灯<span class="sub">渋谷店 / Powered by ジュンバンナビ</span></a>
+    <nav class="main-nav">
+      <a href="index.html">トップ</a>
+      <a href="reserve.html">順番待ち・予約</a>
+      <a href="menu.html">メニュー</a>
+      <a href="reviews.html">口コミ</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="about-platform.html" class="active">ジュンバンナビとは</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>ジュンバンナビとは</h1>
+    <p class="lead">
+      「ジュンバンナビ」は、飲食店向けの順番待ち登録・ネット予約プラットフォームです。
+      本サイト（炭火焼肉 灯 渋谷店）は、ジュンバンナビを導入した店舗の公式サイトという設定のデモです。
+      既存の順番待ち・予約プラットフォームの一般的な仕組みを踏まえつつ、
+      「検索エンジンだけでなくAI検索エンジンやLLMの回答にも正しく店舗情報が引用されること」を
+      設計の中心に据えている点が特徴です。
+    </p>
+  </section>
+
+  <section id="differentiators">
+    <h2>設計上の特徴</h2>
+    <div class="card-grid">
+      <div class="card">
+        <strong>全ページを静的HTMLで配信</strong>
+        <p>多くの予約プラットフォームは店舗ページがJavaScriptで描画されるSPA構成になりがちです。ジュンバンナビ導入店舗のページは初期HTMLの時点で店名・住所・営業時間・メニュー・口コミがすべて読み取れるため、JavaScriptを実行しないAIクローラーにも内容が正しく伝わります。</p>
+      </div>
+      <div class="card">
+        <strong>構造化データを全ページ標準実装</strong>
+        <p>Restaurant・Menu・FAQPage・Review・AggregateRating・BreadcrumbListのJSON-LDを標準で埋め込みます。AggregateRatingの件数は、必ずページ上に表示されているレビュー件数と一致させています（一致しない構造化データはGoogleのリッチリザルトガイドライン違反になり得ます）。</p>
+      </div>
+      <div class="card">
+        <strong>llms.txtの標準提供</strong>
+        <p>llms.txt仕様（v1.7.0）に準拠したファイルをサイトルートに配置し、店舗の要約と主要ページへのリンクをLLM向けに簡潔にまとめています。</p>
+      </div>
+      <div class="card">
+        <strong>AIクローラーを許可するrobots.txt</strong>
+        <p>GPTBot・ClaudeBot・PerplexityBot・Google-Extendedなど主要なAIクローラーを明示的に許可し、AI検索・チャット回答における店舗情報の引用機会を狭めない設定をデフォルトにしています（学習用クローラーの許可可否は導入店舗ごとに選べる設計を想定）。</p>
+      </div>
+      <div class="card">
+        <strong>FAQを「引用されやすい文章」で設計</strong>
+        <p>よくある質問は、ユーザーがAIチャットに話しかけるような自然文の質問形式にし、回答は1〜3文で完結する具体的な事実（時間・金額・条件）を含む形で記述しています。これはAI検索エンジンが回答生成時に引用しやすい文章構造です。</p>
+      </div>
+      <div class="card">
+        <strong>順番待ちの仕組みはEPARKなど既存サービスを参考に設計</strong>
+        <p>「席を確定させず、順番と待ち時間の目安だけを共有する」という順番待ちの基本設計は、EPARK等の既存プラットフォームで実証されている仕組みを参考にしています。ブランド名・ロゴ等は独自のものであり、EPARK株式会社および「焼肉きんぐ」を運営する企業とは一切関係ありません。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="disclaimer">
+    <h2>本ページについて</h2>
+    <p class="notice">
+      本サイトはポートフォリオ・技術検証を目的としたデモであり、実在の店舗・企業ではありません。
+      店名「炭火焼肉 灯」およびサービス名「ジュンバンナビ」はこのデモのために作成したオリジナルの名称です。
+      実際のサービスとして公開・商用化する場合は、商標調査、決済・個人情報保護法対応、
+      実際の店舗データへの差し替えが別途必要です。
+    </p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>炭火焼肉 灯 渋谷店（デモサイト） — Powered by ジュンバンナビ</p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

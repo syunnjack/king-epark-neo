@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>順番待ち・ネット予約｜炭火焼肉 灯 渋谷店</title>
+<meta name="description" content="炭火焼肉 灯 渋谷店の順番待ち登録・日時指定予約はこちらから。現在の待ち時間目安を確認しながら、来店前にスマホで受付できます。キャンセルは来店15分前まで無料。" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="canonical" href="https://example.com/king-epark-neo/reserve.html" />
+<link rel="stylesheet" href="assets/style.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "トップ", "item": "https://example.com/king-epark-neo/" },
+    { "@type": "ListItem", "position": 2, "name": "順番待ち・予約", "item": "https://example.com/king-epark-neo/reserve.html" }
+  ]
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html">炭火焼肉 灯<span class="sub">渋谷店 / Powered by ジュンバンナビ</span></a>
+    <nav class="main-nav">
+      <a href="index.html">トップ</a>
+      <a href="reserve.html" class="active">順番待ち・予約</a>
+      <a href="menu.html">メニュー</a>
+      <a href="reviews.html">口コミ</a>
+      <a href="faq.html">よくある質問</a>
+      <a href="about-platform.html">ジュンバンナビとは</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>順番待ち・ネット予約</h1>
+    <p class="lead">
+      「今すぐ順番待ちに登録する」か「日時を指定して予約する」かをお選びいただけます。
+      順番待ちは、実際に店頭に並ばなくても、あと何組でご案内できるかがスマホで確認できる仕組みです。
+    </p>
+  </section>
+
+  <section id="current-status">
+    <h2>現在の混雑状況</h2>
+    <div class="card wait-status">
+      <div>
+        <div class="wait-number" id="wait-minutes">約15分</div>
+        <div class="wait-label" id="wait-groups">現在 3組のお客様がお待ちです（自動更新）</div>
+      </div>
+    </div>
+    <p class="notice">
+      待ち時間は目安であり、実際のご案内時間と異なる場合があります。このデモサイトでは待ち状況をブラウザ内でシミュレーションしています。
+    </p>
+  </section>
+
+  <section id="reservation-form">
+    <h2>順番待ち・予約フォーム</h2>
+    <form class="review-form" id="reserve-form">
+      <label>
+        受付方法
+        <select name="mode" id="reserve-mode">
+          <option value="queue">今すぐ順番待ちに登録する</option>
+          <option value="scheduled">日時を指定して予約する</option>
+        </select>
+      </label>
+      <label>
+        来店希望日時（日時指定の場合）
+        <input type="datetime-local" name="datetime" id="reserve-datetime" />
+      </label>
+      <label>
+        人数
+        <select name="party_size">
+          <option>1名</option>
+          <option selected>2名</option>
+          <option>3名</option>
+          <option>4名</option>
+          <option>5名以上</option>
+        </select>
+      </label>
+      <label>
+        お名前
+        <input type="text" name="name" required placeholder="山田 太郎" />
+      </label>
+      <label>
+        電話番号
+        <input type="tel" name="phone" required placeholder="090-0000-0000" />
+      </label>
+      <button type="submit" class="btn btn-primary">この内容で登録する</button>
+    </form>
+    <div id="reserve-result"></div>
+  </section>
+
+  <section id="how-it-works">
+    <h2>順番待ちの仕組み</h2>
+    <div class="card-grid">
+      <div class="card">
+        <strong>1. ネットで受付</strong>
+        <p>来店前にスマホから受付。受付番号が発行され、待ち組数の目安がその場でわかります。</p>
+      </div>
+      <div class="card">
+        <strong>2. 外出先で待てる</strong>
+        <p>店頭で並ぶ必要はありません。順番が近づくとLINE通知（デモでは画面表示）でお知らせします。</p>
+      </div>
+      <div class="card">
+        <strong>3. 案内・入店</strong>
+        <p>順番が来たら15分以内にご来店ください。時間を過ぎた場合は次のお客様をご案内する場合があります。</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>炭火焼肉 灯 渋谷店（デモサイト） — Powered by ジュンバンナビ</p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
