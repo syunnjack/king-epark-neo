@@ -66,11 +66,14 @@ python -m http.server 8000
 構造化データの検証には [Rich Results Test](https://search.google.com/test/rich-results) または
 [Schema Markup Validator](https://validator.schema.org/) に各HTMLファイルを貼り付けてください。
 
-## 公開する場合
+## 公開先
 
-- `example.com` になっている箇所（`canonical`・OGP・JSON-LD内の`url`/`@id`、`llms.txt`、`sitemap.xml`、`robots.txt`のSitemap行）を実際のドメインに置換してください
-- GitHub Pagesで公開する場合、リポジトリをPublic化するか、Netlify/Vercel等別ホスティングを利用してください（FreeプランのPages制約は`index-on-off`/`sites-shien`と同様）
-- 実際の店舗として運用する場合は、住所・電話番号・メニュー・価格をすべて実データに差し替え、商標調査を行ってください
+GitHub Pagesで公開済みです: https://syunnjack.github.io/king-epark-neo/
+
+独自ドメインに切り替える場合は、`canonical`・OGP・JSON-LD内の`url`/`@id`、`llms.txt`、`sitemap.xml`、`robots.txt`のSitemap行にある
+`https://syunnjack.github.io/king-epark-neo/` を実際のドメインに置換してください。
+
+実際の店舗として運用する場合は、住所・電話番号・メニュー・価格をすべて実データに差し替え、商標調査を行ってください。
 
 ## 今後の拡張候補
 

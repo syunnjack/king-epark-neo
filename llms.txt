@@ -15,12 +15,12 @@
 
 ## Docs
 
-- [トップページ](https://example.com/king-epark-neo/index.html): 店舗概要、アクセス、営業時間、選ばれる理由
-- [順番待ち・予約](https://example.com/king-epark-neo/reserve.html): 順番待ち登録・日時指定予約の方法と仕組み
-- [メニュー](https://example.com/king-epark-neo/menu.html): 食べ放題コースと単品メニューの料金一覧
-- [よくある質問](https://example.com/king-epark-neo/faq.html): 予約・キャンセル・アレルギー・団体利用などのQ&A
-- [口コミ](https://example.com/king-epark-neo/reviews.html): 来店者による評価とレビュー本文
-- [ジュンバンナビとは](https://example.com/king-epark-neo/about-platform.html): 本サイトが利用している予約プラットフォームの概要
+- [トップページ](https://syunnjack.github.io/king-epark-neo/index.html): 店舗概要、アクセス、営業時間、選ばれる理由
+- [順番待ち・予約](https://syunnjack.github.io/king-epark-neo/reserve.html): 順番待ち登録・日時指定予約の方法と仕組み
+- [メニュー](https://syunnjack.github.io/king-epark-neo/menu.html): 食べ放題コースと単品メニューの料金一覧
+- [よくある質問](https://syunnjack.github.io/king-epark-neo/faq.html): 予約・キャンセル・アレルギー・団体利用などのQ&A
+- [口コミ](https://syunnjack.github.io/king-epark-neo/reviews.html): 来店者による評価とレビュー本文
+- [ジュンバンナビとは](https://syunnjack.github.io/king-epark-neo/about-platform.html): 本サイトが利用している予約プラットフォームの概要
 
 ## Notes
 

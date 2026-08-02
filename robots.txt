@@ -52,4 +52,4 @@ Allow: /
 User-agent: Amazonbot
 Allow: /
 
-Sitemap: https://example.com/king-epark-neo/sitemap.xml
+Sitemap: https://syunnjack.github.io/king-epark-neo/sitemap.xml
