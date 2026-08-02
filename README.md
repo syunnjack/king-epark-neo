@@ -45,6 +45,8 @@ king-epark-neo/
 ├── faq.html             よくある質問（FAQPage）
 ├── reviews.html         口コミ・UGC投稿フォーム（Review/AggregateRating）
 ├── about-platform.html  「ジュンバンナビ」プラットフォーム紹介・免責事項
+├── monitor.html         無料モニター店舗募集ページ（フェーズ1の営業資料）
+├── monitor-terms.html   モニター利用規約（ドラフト）
 ├── llms.txt             LLM向けサイト要約
 ├── robots.txt           AIクローラー許可設定
 ├── sitemap.xml
@@ -52,6 +54,22 @@ king-epark-neo/
 ├── assets/app.js        待ち時間シミュレーション・フォーム処理（表示内容には影響しないJS拡張のみ）
 └── data/reviews.json    口コミの元データ（HTML内にも静的に重複掲載）
 ```
+
+## フェーズ1（実証・信頼構築）の実行チェックリスト
+
+`monitor.html` が実際に知人の飲食店へ送れる営業資料になっています。実行手順：
+
+1. **候補店舗を1〜3店舗リストアップ**（知人が営業している飲食店。業態は焼肉に限らず可）
+2. `monitor.html` の内容を確認し、[monitor@junbannavi.com](mailto:monitor@junbannavi.com) を実際に受け取れるアドレスに変更する
+   （ドメインメール転送を設定するか、自分の既存メールアドレスに置き換える）
+3. 候補店舗に `https://junbannavi.com/monitor.html` のリンクを送る、または直接説明してモニター応募を打診する
+4. 応募があったら `monitor.html` の「お申し込みに必要な情報」で店舗情報を収集
+5. 収集した情報をもとに、現在の`index.html`〜`reviews.html`を複製・編集して店舗ごとのページを作成
+   （店舗数が増えてきたら、設定ファイルからページを自動生成する仕組みを検討）
+6. 月1回のフィードバックで、検索・AI経由の見え方（`sites-shien`との連携も検討）を報告
+
+**注意**: `monitor-terms.html` は実運用前提のドラフトであり、弁護士によるレビューを受けたものではありません。
+実際に個人情報を預かって運用する場合は、特定商取引法・個人情報保護法の観点で内容を見直してください。
 
 ## 動作確認方法
 

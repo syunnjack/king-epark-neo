@@ -21,6 +21,8 @@
 - [よくある質問](https://junbannavi.com/faq.html): 予約・キャンセル・アレルギー・団体利用などのQ&A
 - [口コミ](https://junbannavi.com/reviews.html): 来店者による評価とレビュー本文
 - [ジュンバンナビとは](https://junbannavi.com/about-platform.html): 本サイトが利用している予約プラットフォームの概要
+- [モニター募集](https://junbannavi.com/monitor.html): 飲食店向け無料モニタープログラムの案内
+- [モニター利用規約](https://junbannavi.com/monitor-terms.html): 無料モニタープログラムの利用規約
 
 ## Notes
 
