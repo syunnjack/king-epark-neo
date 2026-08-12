@@ -1,11 +1,11 @@
 // Google Analytics 4 (gtag.js)
 //
-// Replace the placeholder below with your real GA4 Measurement ID
-// (Admin > Data Streams > your web stream > Measurement ID, format "G-XXXXXXXXXX")
-// once you've created the property in Google Analytics. Until then, this
-// script does nothing -- no requests are sent, so placeholder data never
-// pollutes real analytics.
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+// Measurement ID for the GA4 property "king-epark-neo (http://junbannavi.com/)"
+// (Admin > Data Streams > your web stream > Measurement ID, format "G-XXXXXXXXXX").
+// If this is ever reset to the "G-XXXXXXXXXX" placeholder, this script does
+// nothing -- no requests are sent, so placeholder data never pollutes real
+// analytics.
+const GA_MEASUREMENT_ID = "G-3Y70KDBYD9";
 
 if (GA_MEASUREMENT_ID && GA_MEASUREMENT_ID !== "G-XXXXXXXXXX") {
   const script = document.createElement("script");
