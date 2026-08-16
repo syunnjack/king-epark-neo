@@ -106,17 +106,67 @@
 
   <section id="how-to-apply">
     <h2>お申し込み方法</h2>
-    <p>以下の情報を添えて、<a href="mailto:monitor@junbannavi.com">monitor@junbannavi.com</a> までメールでご連絡ください。</p>
-    <div class="card">
-      <strong>お申し込みに必要な情報</strong>
-      <ul>
-        <li>店舗名・業態</li>
-        <li>所在地・電話番号</li>
-        <li>ご担当者名</li>
-        <li>現在利用中の予約サービス（あれば）</li>
-        <li>公開希望時期</li>
-      </ul>
+
+    <!--
+      送信先が設定されていない間は、このフォームは表示されない（app.js が hidden を外す）。
+      設定前に置いておくと、送信できないフォームを出すことになるため。
+      その場合は下のメール案内だけが残る。
+    -->
+    <form class="review-form" id="monitor-form" hidden>
+      <label>
+        店舗名 <span class="req">必須</span>
+        <input type="text" name="shop" required placeholder="炭火焼肉 灯" />
+      </label>
+      <label>
+        業態 <span class="req">必須</span>
+        <input type="text" name="genre" required placeholder="焼肉／居酒屋／カフェ など" />
+      </label>
+      <label>
+        所在地 <span class="req">必須</span>
+        <input type="text" name="address" required placeholder="東京都◯◯区…" />
+      </label>
+      <label>
+        電話番号 <span class="req">必須</span>
+        <input type="tel" name="phone" required placeholder="090-0000-0000" />
+      </label>
+      <label>
+        ご担当者名 <span class="req">必須</span>
+        <input type="text" name="name" required placeholder="山田 太郎" />
+      </label>
+      <label>
+        返信用メールアドレス <span class="req">必須</span>
+        <input type="email" name="email" required placeholder="you@example.com" />
+      </label>
+      <label>
+        現在利用中の予約サービス（あれば）
+        <input type="text" name="current_service" placeholder="ホットペッパー、EPARK など" />
+      </label>
+      <label>
+        公開希望時期
+        <input type="text" name="desired_date" placeholder="来月中、など" />
+      </label>
+      <label class="check">
+        <input type="checkbox" name="agree" required />
+        <a href="monitor-terms.html">モニター利用規約</a>に同意します <span class="req">必須</span>
+      </label>
+      <button type="submit" class="btn btn-primary">この内容で応募する</button>
+    </form>
+    <div id="monitor-form-result" role="status"></div>
+
+    <div id="monitor-mail-guide">
+      <p>以下の情報を添えて、<a href="mailto:monitor@junbannavi.com">monitor@junbannavi.com</a> までメールでご連絡ください。</p>
+      <div class="card">
+        <strong>お申し込みに必要な情報</strong>
+        <ul>
+          <li>店舗名・業態</li>
+          <li>所在地・電話番号</li>
+          <li>ご担当者名</li>
+          <li>現在利用中の予約サービス（あれば）</li>
+          <li>公開希望時期</li>
+        </ul>
+      </div>
     </div>
+
     <p>ご連絡後、1週間程度で内容を確認し、こちらからご返信します。</p>
   </section>
 
@@ -142,6 +192,7 @@
   <p><a href="tokushoho.html">特定商取引法に基づく表記</a></p>
 </footer>
 
+<script src="assets/form-config.js"></script>
 <script src="assets/app.js"></script>
 </body>
 </html>

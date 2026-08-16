@@ -172,7 +172,85 @@ function wireMailFallback() {
   }
 }
 
+/**
+ * モニター応募フォーム。
+ *
+ * 送信先（assets/form-config.js）が空のあいだは、フォームを出さずに
+ * メール案内だけを残す。送信できないフォームを置くと、
+ * 送ったつもりで届かない、という一番まずい状態になるため。
+ *
+ * 送信先が入っていれば、フォームを出してメール案内を下げる。
+ */
+function wireMonitorForm() {
+  const form = document.getElementById("monitor-form");
+  if (!form) return;
+
+  const endpoint = (window.MONITOR_FORM_ENDPOINT || "").trim();
+  const mailGuide = document.getElementById("monitor-mail-guide");
+  const result = document.getElementById("monitor-form-result");
+  if (!endpoint) return;
+
+  form.hidden = false;
+  if (mailGuide) mailGuide.hidden = true;
+
+  // 上部のCTAも、メールではなくフォームへ向ける。
+  // フォームがあるのにボタンだけメールのまま、という食い違いを残さない。
+  for (const cta of document.querySelectorAll('a.btn[href^="mailto:"]')) {
+    cta.setAttribute("href", "#how-to-apply");
+    cta.textContent = "応募フォームへ";
+  }
+
+  const isGoogleForm = endpoint.includes("docs.google.com");
+  const fieldMap = window.MONITOR_FORM_FIELD_MAP || {};
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const button = form.querySelector('button[type="submit"]');
+    button.disabled = true;
+    result.textContent = "送信しています…";
+
+    const data = new FormData(form);
+
+    try {
+      if (isGoogleForm) {
+        // Google フォームは CORS を返さないので、応答は読めない。
+        // no-cors で投げ、成功したものとして扱う。
+        const params = new URLSearchParams();
+        for (const [key, value] of data.entries()) {
+          const entry = fieldMap[key];
+          if (entry) params.append(entry, value);
+        }
+        await fetch(endpoint, { method: "POST", mode: "no-cors", body: params });
+      } else {
+        const res = await fetch(endpoint, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: data,
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      }
+
+      form.hidden = true;
+      result.innerHTML = `
+        <div class="card">
+          <strong>お申し込みを受け付けました</strong>
+          <p>1週間程度で内容を確認し、ご記入いただいたメールアドレスへご返信します。</p>
+        </div>`;
+    } catch (err) {
+      // 落ちたことを黙って隠さない。メールという逃げ道も示す
+      result.innerHTML = `
+        <div class="card">
+          <strong>送信できませんでした</strong>
+          <p>お手数ですが、時間をおいて再度お試しいただくか、
+          <a href="mailto:monitor@junbannavi.com">monitor@junbannavi.com</a> までメールでご連絡ください。</p>
+        </div>`;
+      button.disabled = false;
+    }
+  });
+}
+
 simulateWaitStatus();
 wireReserveForm();
 wireReviewForm();
+wireMonitorForm();
 wireMailFallback();
