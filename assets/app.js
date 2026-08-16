@@ -114,6 +114,65 @@ function wireReviewForm() {
   render();
 }
 
+/**
+ * mailto ボタンの取りこぼしを埋める。
+ *
+ * メールソフトが設定されていない端末では、mailto: を押しても何も起きない。
+ * ブラウザは何のエラーも出さないので、押した側からは「ボタンが壊れている」
+ * ようにしか見えない。実際そういう問い合わせを受けた。
+ *
+ * 宛先を画面にも出し、その場でコピーできるようにしておけば、
+ * メールソフトが開かない端末でも応募の手段が残る。
+ */
+function wireMailFallback() {
+  const buttons = document.querySelectorAll('a.btn[href^="mailto:"]');
+
+  for (const button of buttons) {
+    const address = decodeURIComponent(button.getAttribute("href").slice(7).split("?")[0]);
+    if (!address) continue;
+
+    const note = document.createElement("p");
+    note.className = "mail-fallback";
+
+    const lead = document.createElement("span");
+    lead.textContent = "メールソフトが開かない場合は ";
+
+    const code = document.createElement("code");
+    code.textContent = address;
+
+    const copy = document.createElement("button");
+    copy.type = "button";
+    copy.className = "copy-mail";
+    copy.textContent = "コピー";
+
+    const status = document.createElement("span");
+    status.className = "copy-status";
+    status.setAttribute("role", "status");
+
+    copy.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(address);
+        status.textContent = "コピーしました";
+      } catch {
+        // 権限が無い、あるいは古いブラウザ。選択状態にして手動コピーに委ねる
+        const range = document.createRange();
+        range.selectNodeContents(code);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        status.textContent = "選択しました。コピーしてください";
+      }
+      setTimeout(() => {
+        status.textContent = "";
+      }, 4000);
+    });
+
+    note.append(lead, code, " 宛にお送りください ", copy, " ", status);
+    (button.closest(".cta-row") ?? button).after(note);
+  }
+}
+
 simulateWaitStatus();
 wireReserveForm();
 wireReviewForm();
+wireMailFallback();

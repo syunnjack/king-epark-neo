@@ -271,3 +271,42 @@ form.review-form select {
   font-size: 0.85rem;
   color: var(--muted);
 }
+
+/* mailto が開かない端末向けの控え。押しても無反応、という状態を作らない */
+.mail-fallback {
+  margin-top: 12px;
+  font-size: 0.9rem;
+  color: var(--muted, #666);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.mail-fallback code {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.95em;
+  user-select: all;
+}
+
+.copy-mail {
+  padding: 4px 12px;
+  border: 1px solid var(--border, #ddd);
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.copy-mail:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.copy-status {
+  color: var(--accent, #c0392b);
+  font-size: 0.85rem;
+}
