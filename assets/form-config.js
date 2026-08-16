@@ -16,7 +16,12 @@
 //
 // 設定したら、実際に1件送って受信できることを必ず確かめる。
 // 送ったつもりで届いていない、が一番まずい。
-window.MONITOR_FORM_ENDPOINT = "";
+// FormSubmit（アクティベーション済み・疎通確認済み）。
+//
+// ここに書いたアドレスは、公開サイトの JavaScript から読める。
+// FormSubmit の管理画面で発行される「ランダム文字列」に差し替えれば、
+// アドレスを出さずに同じ動作になる。文字列が分かり次第、置き換えること。
+window.MONITOR_FORM_ENDPOINT = "https://formsubmit.co/ajax/syunnjack@gmail.com";
 
 // Google フォームを使う場合だけ必要。
 // フォームの「事前入力したURLを取得」で得た URL に含まれる entry.xxxxxxx を、
