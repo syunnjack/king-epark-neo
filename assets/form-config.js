@@ -9,6 +9,8 @@
 // 設定できるもの（どれか1つ）:
 //   - Formspree      https://formspree.io/f/xxxxxxxx
 //   - FormSubmit     https://formsubmit.co/ajax/xxxxxxxxxxxxxxxx
+//                    （xxxx はアクティベーション後に発行される文字列。
+//                      メールアドレスを直接書くと、公開サイトのJSから拾われる）
 //   - Google フォーム https://docs.google.com/forms/d/e/xxxx/formResponse
 //                    （Google フォームの場合は FIELD_MAP も埋めること）
 //

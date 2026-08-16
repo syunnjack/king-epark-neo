@@ -211,6 +211,17 @@ function wireMonitorForm() {
 
     const data = new FormData(form);
 
+    // FormSubmit の設定項目。件名を付けておかないと、
+    // 受信箱でどのサイトからの応募か分からなくなる。
+    // _captcha を切らないと、AJAX 送信が確認画面で止まる。
+    if (endpoint.includes("formsubmit.co")) {
+      data.append("_subject", `【ジュンバンナビ】モニター応募：${data.get("shop") || "店舗名なし"}`);
+      data.append("_captcha", "false");
+      data.append("_template", "table");
+      const replyTo = data.get("email");
+      if (replyTo) data.append("_replyto", replyTo);
+    }
+
     try {
       if (isGoogleForm) {
         // Google フォームは CORS を返さないので、応答は読めない。
